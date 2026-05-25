@@ -1,0 +1,293 @@
+export const WHATSAPP_NUMBER = '5492617042980';
+
+export const getWhatsAppLink = (message = '') => {
+  const encoded = encodeURIComponent(message || 'Hi! I found you through Ski Match Lessons and I\'d like to book a lesson.');
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+};
+
+export const RESORTS = [
+  // USA
+  { id: 1,  name: 'Park City Mountain',  location: 'Utah, USA',               region: 'usa',          instructors: 24, difficulty: 'All Levels',    rating: 4.9, image: '/images/resorts/parkcity.jpg' },
+  { id: 2,  name: 'Deer Valley Resort',  location: 'Utah, USA',               region: 'usa',          instructors: 18, difficulty: 'Intermediate+', rating: 4.8, image: '/images/resorts/deervalley.webp' },
+  { id: 3,  name: 'Snowbird / Alta',     location: 'Utah, USA',               region: 'usa',          instructors: 22, difficulty: 'Advanced',      rating: 4.9, image: '/images/resorts/snowbird.webp' },
+  { id: 4,  name: 'Brian Head',          location: 'Utah, USA',               region: 'usa',          instructors: 10, difficulty: 'All Levels',    rating: 4.6, image: '/images/resorts/brianhead.jpeg' },
+  { id: 5,  name: 'Vail Mountain',       location: 'Colorado, USA',           region: 'usa',          instructors: 32, difficulty: 'All Levels',    rating: 4.9, image: '/images/resorts/vail.jpg' },
+  { id: 6,  name: 'Breckenridge',        location: 'Colorado, USA',           region: 'usa',          instructors: 28, difficulty: 'All Levels',    rating: 4.8, image: '/images/resorts/breckenridge.jpg' },
+  { id: 7,  name: 'Keystone Resort',     location: 'Colorado, USA',           region: 'usa',          instructors: 20, difficulty: 'All Levels',    rating: 4.7, image: '/images/resorts/keystone.jpg' },
+  { id: 8,  name: 'Loveland Ski Area',   location: 'Colorado, USA',           region: 'usa',          instructors: 14, difficulty: 'All Levels',    rating: 4.7, image: '/images/resorts/loveland.webp' },
+  { id: 9,  name: 'Aspen Snowmass',      location: 'Colorado, USA',           region: 'usa',          instructors: 30, difficulty: 'All Levels',    rating: 5.0, image: '/images/resorts/aspen.jpg' },
+  { id: 10, name: 'Mammoth Mountain',    location: 'California, USA',         region: 'usa',          instructors: 20, difficulty: 'All Levels',    rating: 4.7, image: '/images/resorts/mammoth.jpg' },
+  { id: 11, name: 'Heavenly',            location: 'Lake Tahoe, CA/NV, USA',  region: 'usa',          instructors: 16, difficulty: 'All Levels',    rating: 4.8, image: '/images/resorts/heavenly.JPG' },
+  { id: 12, name: 'Big Bear Mountain',   location: 'California, USA',         region: 'usa',          instructors: 12, difficulty: 'Beginner+',     rating: 4.5, image: '/images/resorts/bigbear.jpeg' },
+  // Europe
+  { id: 13, name: 'Grandvalira',         location: 'Andorra',                 region: 'europe',       instructors: 15, difficulty: 'All Levels',    rating: 4.8, image: '/images/resorts/grandvalira.jpg' },
+  { id: 14, name: 'Baqueira-Beret',      location: 'Lleida, Spain',           region: 'europe',       instructors: 12, difficulty: 'All Levels',    rating: 4.7, image: '/images/resorts/baqueira.jpg' },
+  { id: 15, name: 'Zermatt',             location: 'Valais, Switzerland',     region: 'europe',       instructors: 16, difficulty: 'All Levels',    rating: 5.0, image: '/images/resorts/zermatt.jpg' },
+  // South America
+  { id: 16, name: 'Portillo',            location: 'Los Andes, Chile',        region: 'southamerica', instructors: 13, difficulty: 'All Levels',    rating: 4.9, image: '/images/resorts/portillo.webp' },
+  { id: 17, name: 'Cerro Catedral',      location: 'Bariloche, Argentina',    region: 'southamerica', instructors: 14, difficulty: 'All Levels',    rating: 4.8, image: '/images/resorts/cerrocatedral.jpeg' },
+  { id: 18, name: 'Las Leñas',           location: 'Mendoza, Argentina',      region: 'southamerica', instructors: 11, difficulty: 'Advanced',      rating: 4.9, image: '/images/resorts/laslenas.jpg' },
+  // Other
+  { id: 19, name: 'Whistler Blackcomb',  location: 'British Columbia, Canada',region: 'other',        instructors: 35, difficulty: 'All Levels',    rating: 4.9, image: '/images/resorts/whistler.jpg' },
+  { id: 20, name: 'Niseko United',       location: 'Hokkaido, Japan',         region: 'other',        instructors: 18, difficulty: 'All Levels',    rating: 5.0, image: '/images/resorts/niseko.webp' },
+];
+
+export const INSTRUCTORS = [
+  { id: 1, name: 'Marco Alvarado', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80', certifications: ['PSIA Level 3', 'ISIA'], specialties: ['Carving', 'Off-Piste', 'Advanced'], languages: ['EN', 'ES', 'FR'], resorts: ['Vail Mountain', 'Breckenridge'], rating: 4.9, reviews: 312 },
+  { id: 2, name: 'Sofia Müller', avatar: 'https://images.unsplash.com/photo-1494790108755-2616b2e5a7b8?w=200&q=80', certifications: ['ISIA', 'Swiss Ski School'], specialties: ['Kids', 'Beginner', 'Freestyle'], languages: ['EN', 'DE', 'FR'], resorts: ['Zermatt', 'Grandvalira'], rating: 5.0, reviews: 445 },
+  { id: 3, name: 'Carlos Benitez', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80', certifications: ['PSIA Level 2', 'CASI'], specialties: ['Freestyle', 'Moguls', 'Park'], languages: ['EN', 'ES'], resorts: ['Park City Mountain', 'Mammoth Mountain'], rating: 4.8, reviews: 198 },
+  { id: 4, name: 'Emma Richardson', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80', certifications: ['BASI Level 4', 'ISIA'], specialties: ['Racing', 'Carving', 'Adults'], languages: ['EN', 'IT'], resorts: ['Whistler Blackcomb', 'Zermatt'], rating: 4.9, reviews: 287 },
+  { id: 5, name: 'Lucas Moreau', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80', certifications: ['ESF niveau 4', 'ISIA'], specialties: ['Off-Piste', 'Backcountry', 'Telemark'], languages: ['FR', 'EN', 'ES'], resorts: ['Grandvalira', 'Baqueira-Beret'], rating: 4.7, reviews: 163 },
+  { id: 6, name: 'Valentina Cruz', avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80', certifications: ['PSIA Level 3', 'Children\'s Specialist'], specialties: ['Kids', 'Beginner', 'Adaptive'], languages: ['ES', 'EN', 'PT'], resorts: ['Cerro Catedral', 'Las Leñas'], rating: 5.0, reviews: 521 },
+];
+
+export const TESTIMONIALS = [
+  { id: 1, name: 'Sarah Johnson', country: 'USA', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80', rating: 5, text: 'Incredible experience! Marco had me carving proper turns by day 3. Best investment of my ski trip to Vail by far.', instructor: 'Marco Alvarado', type: 'Advanced', resort: 'Vail Mountain' },
+  { id: 2, name: 'Javier López', country: 'Argentina', avatar: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=100&q=80', rating: 5, text: 'Valentina es increíble con los niños. Mi hija de 5 años esquiaba sola al final del día. ¡Magia pura!', instructor: 'Valentina Cruz', type: 'Kids', resort: 'Cerro Catedral' },
+  { id: 3, name: 'Emily Chen', country: 'Canada', avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80', rating: 5, text: 'Sofia was patient, professional and made my first skiing experience absolutely magical. Booked 3 more lessons immediately!', instructor: 'Sofia Müller', type: 'Beginner', resort: 'Zermatt' },
+  { id: 4, name: 'Thomas Bernard', country: 'France', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80', rating: 5, text: 'Lucas knows every hidden powder stash in Grandvalira. The off-piste experience was absolutely world-class. Merci!', instructor: 'Lucas Moreau', type: 'Advanced', resort: 'Grandvalira' },
+  { id: 5, name: 'Ana García', country: 'Spain', avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80', rating: 5, text: 'De principiante total a esquiar pistas rojas en una semana. Carlos es un maestro. ¡Ski Match es lo mejor!', instructor: 'Carlos Benitez', type: 'Intermediate', resort: 'Baqueira-Beret' },
+  { id: 6, name: 'James O\'Brien', country: 'UK', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80', rating: 5, text: 'Emma transformed my skiing completely. Her racing background shows — my technique improved dramatically in just 4 sessions.', instructor: 'Emma Richardson', type: 'Intermediate', resort: 'Whistler Blackcomb' },
+];
+
+export const FAQS = [
+  {
+    q_en: 'Do I need prior skiing experience?',
+    q_es: '¿Necesito tener experiencia previa en esquí?',
+    a_en: 'Not at all! We work with absolute beginners — from kids to adults, no experience required. Our certified instructors specialize in first-time experiences and will make you feel safe and confident from the very first moment.',
+    a_es: '¡Para nada! Trabajamos con principiantes absolutos — niños y adultos, sin experiencia previa necesaria. Nuestros instructores certificados están especializados en primeras experiencias y te harán sentir seguro y confiado desde el primer momento.',
+  },
+  {
+    q_en: 'What is the minimum age for lessons?',
+    q_es: '¿Cuál es la edad mínima para las clases?',
+    a_en: 'We accept children from 3-4 years old with specially trained instructors for young learners. There is no maximum age — we have instructors who work with adults of all ages!',
+    a_es: 'Aceptamos niños desde 3-4 años con instructores especialmente entrenados para pequeños. ¡No hay edad máxima! Tenemos instructores que trabajan con adultos de todas las edades.',
+  },
+  {
+    q_en: 'Can I choose my instructor?',
+    q_es: '¿Puedo elegir a mi instructor?',
+    a_en: 'Yes! We match you based on your level, goals, language preference, and availability. You can also browse our instructor profiles and request a specific one. Your satisfaction is our priority.',
+    a_es: '¡Sí! Te emparejamos según tu nivel, objetivos, idioma preferido y disponibilidad. También puedes explorar los perfiles de instructores y solicitar uno específico. Tu satisfacción es nuestra prioridad.',
+  },
+  {
+    q_en: "What's included in a lesson?",
+    q_es: '¿Qué incluye una clase?',
+    a_en: 'Each lesson includes a certified instructor, personalized coaching tailored to your level, real-time feedback, and a progress summary. Equipment rental and lift tickets are not included but we can help you arrange them.',
+    a_es: 'Cada clase incluye un instructor certificado, coaching personalizado a tu nivel, retroalimentación en tiempo real y un resumen de progreso. El alquiler de equipo y los pases de telesilla no están incluidos, pero podemos ayudarte a gestionarlos.',
+  },
+  {
+    q_en: 'Are private or group lessons available?',
+    q_es: '¿Hay clases privadas o grupales?',
+    a_en: 'Both! Private lessons give you 100% personalized attention and progress faster. Group lessons (max 6 people) are more social and cost-effective. We also offer semi-private (2-3 people) as a great middle ground.',
+    a_es: '¡Ambas! Las clases privadas te dan 100% de atención personalizada y progresas más rápido. Las clases grupales (máx 6 personas) son más sociales y económicas. También ofrecemos semi-privadas (2-3 personas) como excelente punto medio.',
+  },
+  {
+    q_en: 'Can I reschedule my lesson?',
+    q_es: '¿Puedo reprogramar mi clase?',
+    a_en: 'Yes! You can reschedule with no penalty up to 48 hours before your lesson. For last-minute cancellations due to weather or emergencies, we handle each case individually and always try to find a solution.',
+    a_es: 'Sí, puedes reprogramar sin penalidad hasta 48 horas antes de tu clase. Para cancelaciones de última hora por clima o emergencias, manejamos cada caso individualmente y siempre intentamos encontrar una solución.',
+  },
+  {
+    q_en: 'Do you have Spanish-speaking instructors?',
+    q_es: '¿Tienen instructores que hablen español?',
+    a_en: 'Absolutely! Many of our instructors are native Spanish speakers, and our entire team is bilingual. Just let us know your language preference when booking and we\'ll match you perfectly.',
+    a_es: '¡Por supuesto! Muchos de nuestros instructores son hispanohablantes nativos y todo nuestro equipo es bilingüe. Solo indícanos tu preferencia de idioma al reservar y te haremos el match perfecto.',
+  },
+  {
+    q_en: 'Do you operate at my resort?',
+    q_es: '¿Operan en mi resort?',
+    a_en: 'We operate at 50+ resorts across Utah, Colorado, California, Andorra, Spain, Argentina, Canada, and more. Check our Resorts section or contact us via WhatsApp and we\'ll confirm availability at your location.',
+    a_es: 'Operamos en 50+ resorts en Utah, Colorado, California, Andorra, España, Argentina, Canadá y más. Revisa nuestra sección de Resorts o contáctanos por WhatsApp y confirmamos disponibilidad en tu lugar.',
+  },
+  {
+    q_en: 'What if there is bad weather?',
+    q_es: '¿Qué pasa si hay mal clima?',
+    a_en: 'Safety first! If conditions are unsafe, you can reschedule at no cost. Light snow or cloudy weather usually doesn\'t affect lessons — often it\'s the best skiing! We\'ll always prioritize your safety.',
+    a_es: '¡Primero la seguridad! Si las condiciones son inseguras, puedes reprogramar sin costo. La nieve ligera o el cielo nublado generalmente no afectan las clases — ¡a menudo es la mejor condición para esquiar! Siempre priorizamos tu seguridad.',
+  },
+  {
+    q_en: 'How does the booking process work?',
+    q_es: '¿Cómo es el proceso de reservación?',
+    a_en: 'Simple: send us a WhatsApp message with your resort, preferred dates, skiing level, and lesson type. We\'ll match you with the best available instructor within minutes and confirm everything directly in chat.',
+    a_es: 'Simple: envíanos un mensaje por WhatsApp con tu resort, fechas preferidas, nivel de esquí y tipo de clase. Te hacemos el match con el mejor instructor disponible en minutos y confirmamos todo directamente en el chat.',
+  },
+];
+
+export const BLOG_POSTS = [
+  {
+    id: 1,
+    category: 'Tips', category_es: 'Consejos',
+    date: 'Jan 15, 2025',
+    title_en: '10 Essential Tips for First-Time Skiers',
+    title_es: '10 Tips Esenciales para Principiantes en Esquí',
+    excerpt_en: 'Everything you need to know before hitting the slopes for the very first time. From gear selection to mental preparation, we cover it all.',
+    excerpt_es: 'Todo lo que necesitas saber antes de pisar las pistas por primera vez. Desde la selección del equipo hasta la preparación mental.',
+    content_en: 'Starting your skiing journey is one of the most exciting decisions you can make. The mountains are waiting — here\'s how to show up prepared:\n\n1. **Rent before you buy.** Ski equipment is expensive and very personal. Renting for your first 2–3 days lets you try different sizes without the commitment.\n\n2. **Book a certified instructor.** You\'ll learn correct technique from day one and avoid bad habits that take years to fix.\n\n3. **Dress in layers.** Thermal base, insulating mid-layer, waterproof shell. Cotton is the enemy — it holds moisture and chills you fast.\n\n4. **Protect your head.** A helmet is non-negotiable. Falls happen, and a helmet can save your life.\n\n5. **Start on green runs.** Don\'t let ego push you onto harder terrain before you\'re ready. Greens are designed to build the fundamentals.\n\n6. **Keep your weight forward.** The most common beginner mistake is leaning back. Trust the skis and lean into the hill.\n\n7. **Learn to stop before learning to go fast.** Master the snowplow (pizza) stop before attempting parallel turns.\n\n8. **Stay hydrated.** Cold air and high altitude dehydrate you faster than you think. Drink water throughout the day.\n\n9. **Take breaks.** Tired muscles lead to injuries. Skiing 5 quality runs beats grinding through 15 exhausted ones.\n\n10. **Have fun.** Progress is not linear. Celebrate every small win — each run you complete is a step toward becoming a real skier.',
+    content_es: 'Comenzar tu aventura en el esquí es una de las decisiones más emocionantes que puedes tomar. Las montañas te esperan — así es como llegar preparado:\n\n1. **Alquilá antes de comprar.** El equipo de esquí es caro y muy personal. Alquilar los primeros 2–3 días te permite probar diferentes tallas sin compromiso.\n\n2. **Reservá un instructor certificado.** Aprenderás técnica correcta desde el día uno y evitarás malos hábitos que llevan años corregir.\n\n3. **Vestite en capas.** Base térmica, capa intermedia aislante, capa exterior impermeable. El algodón es tu enemigo — retiene humedad y te enfría rápido.\n\n4. **Protegé tu cabeza.** El casco es innegociable. Las caídas pasan, y un casco puede salvarte la vida.\n\n5. **Comenzá en pistas verdes.** No dejes que el ego te empuje a terreno más difícil antes de estar listo. Las verdes están diseñadas para construir los fundamentos.\n\n6. **Mantené el peso hacia adelante.** El error más común del principiante es reclinarse hacia atrás. Confiá en los esquís e inclinarte hacia la ladera.\n\n7. **Aprendé a frenar antes de aprender a ir rápido.** Dominá el freno cuña antes de intentar giros paralelos.\n\n8. **Mantente hidratado.** El aire frío y la altitud te deshidratan más rápido de lo que pensás. Tomá agua durante todo el día.\n\n9. **Tomá descansos.** Los músculos cansados llevan a lesiones. 5 bajadas de calidad superan a 15 agotadas.\n\n10. **Divertite.** El progreso no es lineal. Celebrá cada pequeño logro — cada pista que completás es un paso para convertirte en un verdadero esquiador.',
+    image: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=600&q=80',
+    author: 'Marco Alvarado',
+  },
+  {
+    id: 2,
+    category: 'Safety', category_es: 'Seguridad',
+    date: 'Jan 28, 2025',
+    title_en: 'Mountain Safety: Everything You Must Know',
+    title_es: 'Seguridad en Montaña: Lo que Debes Saber',
+    excerpt_en: 'Safety on the mountain is paramount. Learn the essential rules, signals, and protocols that every skier should know.',
+    excerpt_es: 'La seguridad en la montaña es primordial. Aprende las reglas esenciales, señales y protocolos que todo esquiador debe conocer.',
+    content_en: 'The mountain is an incredible place, but it demands respect. These safety principles apply to every skier regardless of level.\n\n**The FIS Code of Conduct** sets out 10 rules every skier must follow. The most critical: the skier ahead of you always has right of way. You are responsible for controlling your speed and choosing a safe path.\n\n**Read the signs.** Every resort uses a universal color system: Green (easy), Blue (intermediate), Red (difficult), Black (expert). Always ski terrain that matches your actual skill level, not your aspirational one.\n\n**Weather awareness.** Conditions can change dramatically in minutes at altitude. Check the mountain forecast each morning. If visibility drops or wind picks up, move to lower terrain or head in.\n\n**Buddy system.** Never ski off-piste alone. In backcountry terrain, always carry an avalanche transceiver, probe, and shovel, and know how to use them.\n\n**Know where you are.** Pick up a trail map at the lift base. Know the routes back to the base at all times so you\'re never caught out after lifts close.\n\n**Hypothermia and frostbite.** Extremities — fingers, toes, nose, ears — are vulnerable. Cover up completely and take shelter if you feel numbness or tingling.\n\nSafety doesn\'t limit your experience — it enables more of it.',
+    content_es: 'La montaña es un lugar increíble, pero exige respeto. Estos principios de seguridad aplican a todos los esquiadores independientemente del nivel.\n\n**El Código de Conducta de la FIS** establece 10 reglas que todo esquiador debe seguir. La más crítica: el esquiador que va adelante siempre tiene derecho de paso. Vos sos responsable de controlar tu velocidad y elegir un camino seguro.\n\n**Leé las señales.** Cada resort usa un sistema de colores universal: Verde (fácil), Azul (intermedio), Rojo (difícil), Negro (experto). Siempre esquiá terreno que coincida con tu nivel real, no el aspiracional.\n\n**Conciencia meteorológica.** Las condiciones pueden cambiar dramáticamente en minutos en la altitud. Revisá el pronóstico de montaña cada mañana. Si la visibilidad baja o el viento aumenta, bajá a terreno más bajo o metete adentro.\n\n**Sistema de compañero.** Nunca esquíes fuera de pista solo. En terreno de backcountry, siempre llevá transceptor de avalanchas, sonda y pala, y sabé cómo usarlos.\n\n**Sabé dónde estás.** Agarrá un mapa de pistas en la base del telesilla. Conocé las rutas de regreso a la base en todo momento para nunca quedar atrapado después del cierre de los lifts.\n\n**Hipotermia y congelamiento.** Las extremidades son vulnerables. Cubrirte completamente y buscar refugio si sentís entumecimiento.\n\nLa seguridad no limita tu experiencia — la amplía.',
+    image: '/safety.jpg',
+    author: 'Sofia Müller',
+  },
+  {
+    id: 3,
+    category: 'Technique', category_es: 'Técnica',
+    date: 'Feb 5, 2025',
+    title_en: 'Carving: Advanced Technique for Intermediates',
+    title_es: 'Carving: Técnica Avanzada para Intermedios',
+    excerpt_en: 'Ready to take your skiing to the next level? Carving properly transforms how you experience the mountain.',
+    excerpt_es: '¿Listo para llevar tu esquí al siguiente nivel? El carving correcto transforma completamente tu experiencia en la montaña.',
+    content_en: 'Carving is what separates intermediate skiers from advanced ones. When done right, your skis cut clean arcs in the snow without skidding — it feels effortless, fast, and completely in control.\n\n**What is carving?** Instead of turning by twisting your skis sideways (skidding), you use the ski\'s shaped edge to naturally arc through a turn. Modern ski geometry is specifically designed for this.\n\n**The key movements:**\n- **Edge pressure:** Roll your ankles and knees into the hill to engage the ski\'s edge. Think of tipping your foot sideways as if pouring water from a boot.\n- **Angulation:** Bend your knees and push them toward the slope while keeping your upper body upright. This creates the angle that lets the ski carve.\n- **Weight transfer:** As you complete each turn, progressively load the outside ski. About 70–80% of your weight should end up on it.\n\n**Common mistakes:** Leaning back, allowing the hip to collapse toward the slope (instead of the knee), and initiating turns with the upper body rather than the lower body.\n\n**Progressive drills:** Start on a gentle groomed run. Practice single-direction traverses feeling the edge bite. Then link 5–6 wide carved arcs focusing purely on edge engagement before worrying about speed or line.\n\nWith a certified instructor guiding you through these progressions, most intermediate skiers are carving confidently within 2–3 sessions.',
+    content_es: 'El carving es lo que separa a los esquiadores intermedios de los avanzados. Cuando se hace bien, los esquís cortan arcos limpios en la nieve sin deslizarse lateralmente — se siente sin esfuerzo, rápido y completamente bajo control.\n\n**¿Qué es el carving?** En lugar de girar torciendo los esquís lateralmente (deslizamiento), usás el canto con forma del esquí para arquear naturalmente a través de un giro. La geometría de los esquís modernos está específicamente diseñada para esto.\n\n**Los movimientos clave:**\n- **Presión de canto:** Girá los tobillos y rodillas hacia la ladera para activar el canto del esquí. Pensá en inclinar el pie lateralmente como si estuvieras vaciando agua de una bota.\n- **Angulación:** Doblá las rodillas y empujalas hacia la pendiente mientras mantenés el torso erguido. Esto crea el ángulo que permite al esquí carvar.\n- **Transferencia de peso:** Al completar cada giro, cargá progresivamente el esquí exterior. Aproximadamente el 70–80% de tu peso debe terminar en él.\n\n**Errores comunes:** Reclinarse hacia atrás, dejar que la cadera colapse hacia la pendiente (en lugar de la rodilla), e iniciar los giros con el cuerpo superior en lugar del inferior.\n\n**Ejercicios progresivos:** Comenzá en una pista suave y preparada. Practicá traversas en una sola dirección sintiendo el mordisco del canto. Luego encadenás 5–6 arcos de carving anchos enfocándote puramente en el agarre del canto antes de preocuparte por la velocidad o la línea.\n\nCon un instructor certificado guiándote en estas progresiones, la mayoría de los esquiadores intermedios carvan con confianza en 2–3 sesiones.',
+    image: 'https://images.unsplash.com/photo-1551524559-8af4e6624178?w=600&q=80',
+    author: 'Emma Richardson',
+  },
+  {
+    id: 4,
+    category: 'Destinations', category_es: 'Destinos',
+    date: 'Feb 12, 2025',
+    title_en: 'Ski Destinations: Complete Guide 2025',
+    title_es: 'Destinos de Esquí: Guía Completa 2025',
+    excerpt_en: 'The best resorts of 2025 reviewed. From the powder of Utah to the slopes of the Alps — where to ski this season.',
+    excerpt_es: 'Los mejores resorts de 2025 analizados. Desde el powder de Utah hasta las pistas de los Alpes — dónde esquiar esta temporada.',
+    content_en: 'The 2025 ski season delivered exceptional conditions across multiple continents. Here\'s our expert breakdown of the top destinations right now.\n\n**North America — Utah\'s Powder Highway**\nPark City, Deer Valley, and Snowbird/Alta remain the gold standard. Utah\'s famous "Greatest Snow on Earth" is a result of dry, light powder that stays fresh longer than anywhere else. Snowbird averages over 500 inches annually. Best window: January through March.\n\n**North America — Colorado**\nVail and Breckenridge offer the most varied terrain in the US. Aspen Snowmass is the most prestigious — 5,300+ acres across 4 mountains. Keystone and Loveland are sleeper picks for those wanting quality without the crowds.\n\n**South America — Off-Season Powder**\nWhen North America is melting, Argentina and Chile are in full swing (June–September). Portillo in Chile is a legendary resort — small, exclusive, and home to some of the steepest in-bounds skiing in the world. Bariloche in Argentina offers European-style terrain at a fraction of the cost.\n\n**Europe — Andorra & Spain**\nGrandvalira in Andorra is the largest ski area in the Pyrenees with tax-free shopping as a bonus. Baqueira-Beret in Spain is a local favorite known for challenging terrain and excellent snow.\n\n**Japan — Niseko**\nFor the ultimate powder experience, Niseko in Hokkaido stands alone. The area receives the most snowfall of any ski resort in the world — 15+ meters per season — of ultra-light Siberian powder. Book early; it sells out.',
+    content_es: 'La temporada de esquí 2025 entregó condiciones excepcionales en múltiples continentes. Aquí está nuestro análisis experto de los mejores destinos del momento.\n\n**Norteamérica — La Autopista del Powder de Utah**\nPark City, Deer Valley, y Snowbird/Alta siguen siendo el estándar de oro. La famosa "Greatest Snow on Earth" de Utah es el resultado de nieve seca y liviana que se mantiene fresca más tiempo que en cualquier otro lugar. Snowbird promedia más de 500 pulgadas al año. Mejor ventana: enero a marzo.\n\n**Norteamérica — Colorado**\nVail y Breckenridge ofrecen el terreno más variado de EE.UU. Aspen Snowmass es el más prestigioso — 5,300+ acres en 4 montañas. Keystone y Loveland son opciones ocultas para quienes buscan calidad sin multitudes.\n\n**Sudamérica — Powder en temporada contraria**\nCuando Norteamérica se derrite, Argentina y Chile están en pleno apogeo (junio–septiembre). Portillo en Chile es un resort legendario — pequeño, exclusivo, y hogar de algunas de las pistas más empinadas del mundo. Bariloche en Argentina ofrece terreno de estilo europeo a una fracción del costo.\n\n**Europa — Andorra y España**\nGrandvalira en Andorra es la mayor área esquiable de los Pirineos con compras libres de impuestos como bonus. Baqueira-Beret en España es la favorita local conocida por terreno desafiante y excelente nieve.\n\n**Japón — Niseko**\nPara la experiencia definitiva de powder, Niseko en Hokkaido es único. El área recibe la mayor nevada de cualquier resort de esquí en el mundo — 15+ metros por temporada — de powder siberiano ultraliviano. Reservá temprano; se agota.',
+    image: 'https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?w=600&q=80',
+    author: 'Lucas Moreau',
+  },
+  {
+    id: 5,
+    category: 'Tips', category_es: 'Consejos',
+    date: 'Feb 20, 2025',
+    title_en: 'Complete Ski Equipment Buying Guide',
+    title_es: 'Equipo de Esquí: Guía Completa de Compra',
+    excerpt_en: 'Should you buy or rent? What brands are worth it? We break down everything about ski equipment so you can decide with confidence.',
+    excerpt_es: '¿Comprar o alquilar? ¿Qué marcas valen la pena? Desglosamos todo sobre el equipo de esquí para que decidas con confianza.',
+    content_en: 'Ski equipment is a significant investment. Here\'s how to make the right call for your situation.\n\n**Rent vs. Buy**\nRent if you ski fewer than 7–10 days per year. Rental gear is well-maintained and properly fitted by shop technicians. Buy once you\'re skiing regularly — you\'ll save money in 2–3 seasons and benefit from gear dialed in to your specific style.\n\n**Skis**\nLength depends on your height, weight, skill level, and terrain preference. Beginners should ski shorter (chin to nose height). Intermediates and advanced skiers may prefer longer skis for more stability at speed. All-mountain skis are the best starting point — they handle groomed runs and occasional powder without specializing in either.\n\n**Boots (the most important purchase)**\nA boot that fits correctly makes everything easier. Never compromise on fit. Visit a specialty boot fitter — not a general sporting goods store. Key factors: flex index (stiffer = more responsive, softer = more forgiving) and last width. Budget at least as much for boots as for skis.\n\n**Bindings**\nTypically sold with skis as a package. Make sure they\'re mounted and adjusted by a certified technician at a DIN setting that matches your weight, height, boot sole length, and skiing ability.\n\n**Helmets & Goggles**\nNon-negotiable safety items. A good helmet should fit snugly without pressure points. Goggles with OTG (over-the-glasses) compatibility are useful if you wear eyeglasses. Lens tint: rose/amber for low light, dark for bright sun, photochromic for variable conditions.',
+    content_es: 'El equipo de esquí es una inversión significativa. Así es cómo tomar la decisión correcta para tu situación.\n\n**Alquilar vs. Comprar**\nAlquilá si esquiás menos de 7–10 días por año. El equipo de alquiler está bien mantenido y ajustado correctamente por técnicos de tienda. Comprá una vez que esquiás regularmente — ahorrarás dinero en 2–3 temporadas y te beneficiarás de equipo ajustado a tu estilo específico.\n\n**Esquís**\nLa longitud depende de tu altura, peso, nivel y preferencia de terreno. Los principiantes deberían esquiar más corto (altura de mentón a nariz). Intermedios y avanzados pueden preferir esquís más largos para mayor estabilidad a alta velocidad. Los esquís all-mountain son el mejor punto de partida — manejan pistas preparadas y powder ocasional sin especializarse en ninguno.\n\n**Botas (la compra más importante)**\nUna bota que calza correctamente hace todo más fácil. Nunca comprometas el calce. Visitá un especialista en botas — no una tienda de deportes general. Factores clave: índice de flex (más rígido = más reactivo, más blando = más permisivo) y ancho de horma. Presupuestá al menos tanto para botas como para esquís.\n\n**Fijaciones**\nNormalmente se venden con los esquís como paquete. Aseguráte de que estén montadas y ajustadas por un técnico certificado con un ajuste DIN que corresponda a tu peso, altura, longitud de suela y habilidad.\n\n**Cascos y Gafas**\nElementos de seguridad innegociables. Un buen casco debe calzar bien sin puntos de presión. Las gafas con compatibilidad OTG son útiles si usás lentes. Tinte de lente: rosa/ámbar para poca luz, oscuro para sol brillante, fotocrómico para condiciones variables.',
+    image: '/equipment.jpg',
+    author: 'Carlos Benitez',
+  },
+  {
+    id: 6,
+    category: 'Technique', category_es: 'Técnica',
+    date: 'Mar 1, 2025',
+    title_en: 'How to Choose Your Perfect Resort',
+    title_es: 'Cómo Elegir el Resort Perfecto',
+    excerpt_en: 'Not all resorts are created equal. Find out how to match a resort to your skill level, budget, and travel style for the ultimate ski experience.',
+    excerpt_es: 'No todos los resorts son iguales. Descubre cómo hacer match entre un resort y tu nivel, presupuesto y estilo de viaje para la experiencia ideal.',
+    content_en: 'Choosing the right resort is half the battle. The wrong choice means fighting terrain you can\'t handle — or being bored on slopes that are too easy.\n\n**Assess terrain mix first.** Look at the percentage breakdown of green/blue/red/black runs. A beginner should look for resorts with 30%+ green terrain. Advanced skiers want a high percentage of blacks and off-piste access.\n\n**Consider vertical drop.** Bigger vertical means longer, more varied runs. Vail\'s 3,450ft vertical means you can link many turns before reaching the base. Smaller hills can still be excellent but limit continuous run length.\n\n**Check the snow record.** Consistent annual snowfall is more important than one great year. Utah\'s Snowbird averages 500"/year. Grandvalira in Andorra gets heavy snowfall with high elevation ensuring late-season coverage.\n\n**Group composition.** Traveling with mixed levels? Choose a resort with terrain for everyone — and make sure the beginner areas are genuinely accessible and well-groomed, not an afterthought.\n\n**Proximity to town.** Ski-in/ski-out is a luxury that saves significant time. If you\'re staying in town, check shuttle frequency and cost. Some resorts (especially in Europe) require a car rental to access.\n\n**Budget.** Lift passes at Vail can exceed $250/day. Loveland, Brian Head, and similar resorts offer comparable terrain at 30–40% of the cost. Book early — most resorts offer 40–50% discounts on passes purchased months in advance.',
+    content_es: 'Elegir el resort correcto es la mitad de la batalla. La elección incorrecta significa pelear con terreno que no podés manejar — o aburrirte en pistas demasiado fáciles.\n\n**Evaluá primero la mezcla de terreno.** Mirá el porcentaje de pistas verdes/azules/rojas/negras. Un principiante debería buscar resorts con 30%+ de terreno verde. Los esquiadores avanzados quieren un alto porcentaje de negras y acceso fuera de pista.\n\n**Considerá el desnivel vertical.** Mayor vertical significa bajadas más largas y variadas. Los 1,050m de desnivel de Vail permiten encadenar muchos giros antes de llegar a la base. Las colinas más pequeñas pueden ser excelentes pero limitan la longitud continua de las bajadas.\n\n**Verificá el historial de nieve.** La nevada anual consistente es más importante que un año excelente. Snowbird de Utah promedia 500 pulgadas/año. Grandvalira en Andorra recibe abundante nieve con alta elevación que garantiza cobertura tardía.\n\n**Composición del grupo.** ¿Viajás con niveles mixtos? Elegí un resort con terreno para todos — y aseguráte de que las áreas para principiantes sean genuinamente accesibles y bien preparadas, no una ocurrencia posterior.\n\n**Proximidad al pueblo.** El ski-in/ski-out es un lujo que ahorra tiempo significativo. Si te quedás en el pueblo, verificá la frecuencia y costo del transporte. Algunos resorts (especialmente en Europa) requieren alquiler de auto para acceder.\n\n**Presupuesto.** Los pases de lift en Vail pueden superar los $250/día. Loveland, Brian Head y resorts similares ofrecen terreno comparable al 30–40% del costo. Reservá temprano — la mayoría de los resorts ofrece 40–50% de descuento en pases comprados con meses de anticipación.',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
+    author: 'Valentina Cruz',
+  },
+];
+
+export const PRICING = [
+  {
+    id: 'single',
+    title_en: 'Single Class',
+    title_es: 'Por Clase',
+    subtitle_en: 'Pay only for what you need',
+    subtitle_es: 'Paga solo lo que necesitas',
+    price_usd: 150,
+    duration_en: '90 minutes',
+    duration_es: '90 minutos',
+    features_en: ['Certified instructor', 'Personalized to your level', 'Flexible scheduling', 'Cancel 48h before (no penalty)'],
+    features_es: ['Instructor certificado', 'Personalizado a tu nivel', 'Horarios flexibles', 'Cancelación 48h antes sin penalidad'],
+    cta_en: 'Book a Single Class',
+    cta_es: 'Reservar Clase Suelta',
+    highlight: false,
+    badge: null,
+  },
+  {
+    id: 'pack5',
+    title_en: '5-Class Package',
+    title_es: 'Paquete 5 Clases',
+    subtitle_en: 'Most popular',
+    subtitle_es: 'La más popular',
+    price_usd: 675,
+    original_usd: 750,
+    duration_en: '90 min each · Valid 1 week',
+    duration_es: '90 min c/u · Validez 1 semana',
+    features_en: ['Dedicated instructor', 'Progress tracking', 'Online resources access', 'Flexible scheduling'],
+    features_es: ['Instructor dedicado', 'Seguimiento de progreso', 'Acceso a recursos online', 'Horarios flexibles'],
+    cta_en: 'Get 5 Classes',
+    cta_es: 'Comenzar con 5 Clases',
+    highlight: true,
+    badge_en: 'SAVE 10%',
+    badge_es: 'AHORRO 10%',
+  },
+  {
+    id: 'pack10',
+    title_en: '10-Class Package',
+    title_es: 'Paquete 10 Clases',
+    subtitle_en: 'Best value',
+    subtitle_es: 'Mejor valor',
+    price_usd: 1200,
+    original_usd: 1500,
+    duration_en: '90 min each · Valid 30 days',
+    duration_es: '90 min c/u · Validez 30 días',
+    features_en: ['Dedicated instructor + assessments', 'Personal progression plan', 'Video session feedback', 'Priority scheduling'],
+    features_es: ['Instructor dedicado + evaluaciones', 'Plan de progresión personalizado', 'Video feedback de sesiones', 'Prioridad en reservaciones'],
+    cta_en: 'Get 10 Classes',
+    cta_es: 'Contratar Paquete 10',
+    highlight: false,
+    badge_en: 'SAVE 20%',
+    badge_es: 'AHORRO 20%',
+  },
+  {
+    id: 'corporate',
+    title_en: 'Corporate / Groups',
+    title_es: 'Corporativo / Grupos',
+    subtitle_en: 'For companies & events',
+    subtitle_es: 'Para empresas y eventos',
+    price_usd: null,
+    duration_en: 'Flexible',
+    duration_es: 'Flexible',
+    features_en: ['Multiple instructors', 'Team building on the slopes', 'Professional photos & videos', 'Group progress tracking'],
+    features_es: ['Múltiples instructores', 'Team building en las pistas', 'Fotos y videos profesionales', 'Seguimiento de grupo'],
+    cta_en: 'Request Corporate Quote',
+    cta_es: 'Cotizar Evento Corporativo',
+    highlight: false,
+    badge: null,
+  },
+];
+
+export const CHATBOT_RESPONSES: Record<string, { en: string; es: string }> = {
+  process: {
+    en: "It's simple! 1) Tell us your resort & level via WhatsApp, 2) We match you with the best certified instructor, 3) Confirm your schedule, 4) Hit the slopes! The whole process takes just minutes. 🎿",
+    es: "¡Es simple! 1) Dinos tu resort y nivel por WhatsApp, 2) Te hacemos match con el mejor instructor certificado, 3) Confirmamos tu horario, 4) ¡A las pistas! Todo el proceso toma solo minutos. 🎿",
+  },
+  resorts: {
+    en: "We operate at 50+ resorts worldwide: Utah (Park City, Deer Valley), Colorado (Vail, Breckenridge), California (Mammoth), Andorra (Grandvalira), Spain (Baqueira-Beret, Sierra Nevada), Argentina (Bariloche, Las Leñas), Canada (Whistler), Switzerland (Zermatt), and more! 🌍",
+    es: "¡Operamos en 50+ resorts en todo el mundo! Utah (Park City, Deer Valley), Colorado (Vail, Breckenridge), California (Mammoth), Andorra (Grandvalira), España (Baqueira-Beret, Sierra Nevada), Argentina (Bariloche, Las Leñas), Canadá (Whistler), Suiza (Zermatt) y más! 🌍",
+  },
+  level: {
+    en: "We have classes for ALL levels: 🔵 Never-Ever / Beginner: Starting from zero, green slopes. 🔴 Intermediate: Improving technique on red runs. ⚫ Advanced: Carving, off-piste, freestyle. What level do you think you're at?",
+    es: "¡Tenemos clases para TODOS los niveles! 🔵 Principiante: Empezamos desde cero, pistas verdes. 🔴 Intermedio: Mejoramos técnica en pistas rojas. ⚫ Avanzado: Carving, fuera de pistas, freestyle. ¿En qué nivel te ubicas?",
+  },
+  price: {
+    en: "Our pricing: Single class $150 USD (90 min) | 5-class package $675 (save 10%) | 10-class package $1,200 (save 20%) | Corporate/groups: custom quote. All with certified instructors! 💰",
+    es: "Nuestros precios: Clase suelta $150 USD (90 min) | Paquete 5 clases $675 (ahorrás 10%) | Paquete 10 clases $1,200 (ahorrás 20%) | Corporativo/grupos: cotización personalizada. ¡Todo con instructores certificados! 💰",
+  },
+  book: {
+    en: "Ready to book? Just send us a WhatsApp! Tell us: your resort, preferred dates, skill level, and lesson type (private/group). We'll match you with a certified instructor in minutes. Click the WhatsApp button above! 📱",
+    es: "¿Listo para reservar? ¡Envianos un WhatsApp! Cuéntanos: tu resort, fechas preferidas, tu nivel y tipo de clase (privada/grupal). Te hacemos match con un instructor certificado en minutos. ¡Haz clic en el botón de WhatsApp! 📱",
+  },
+  default: {
+    en: "Great question! For the most accurate answer, reach out directly via WhatsApp — our team responds in minutes and speaks both English and Spanish. Tap the WhatsApp button to start! 🎿",
+    es: "¡Buena pregunta! Para la respuesta más precisa, contáctanos directamente por WhatsApp — nuestro equipo responde en minutos y habla inglés y español. ¡Toca el botón de WhatsApp para comenzar! 🎿",
+  },
+};
