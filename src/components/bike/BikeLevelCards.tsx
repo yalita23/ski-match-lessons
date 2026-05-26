@@ -16,6 +16,7 @@ const levels = {
       accentColor: '#10B981',
       accentGlow: 'rgba(16, 185, 129, 0.3)',
       msg: "Hi! I'm a beginner MTB rider and I'd like to book a lesson with Bike Match Lessons.",
+      imgPosition: 'center center',
     },
     {
       badge: 'MOST POPULAR',
@@ -29,6 +30,7 @@ const levels = {
       accentGlow: 'rgba(245, 158, 11, 0.3)',
       msg: "Hi! I'm an intermediate MTB rider and I'd like to improve my technique with Bike Match Lessons.",
       featured: true,
+      imgPosition: 'center center',
     },
     {
       badge: 'ADVANCED',
@@ -40,6 +42,7 @@ const levels = {
       accentColor: '#EF4444',
       accentGlow: 'rgba(239, 68, 68, 0.3)',
       msg: "Hi! I'm an advanced MTB rider looking for elite coaching with Bike Match Lessons.",
+      imgPosition: 'center 65%',
     },
   ],
   es: [
@@ -53,6 +56,7 @@ const levels = {
       accentColor: '#10B981',
       accentGlow: 'rgba(16, 185, 129, 0.3)',
       msg: 'Hola! Soy principiante en MTB y quisiera reservar una clase con Bike Match Lessons.',
+      imgPosition: 'center center',
     },
     {
       badge: 'MÁS POPULAR',
@@ -66,6 +70,7 @@ const levels = {
       accentGlow: 'rgba(245, 158, 11, 0.3)',
       msg: 'Hola! Soy rider MTB intermedio/a y quisiera mejorar mi técnica con Bike Match Lessons.',
       featured: true,
+      imgPosition: 'center center',
     },
     {
       badge: 'AVANZADO',
@@ -77,6 +82,7 @@ const levels = {
       accentColor: '#EF4444',
       accentGlow: 'rgba(239, 68, 68, 0.3)',
       msg: 'Hola! Soy rider MTB avanzado/a buscando coaching elite con Bike Match Lessons.',
+      imgPosition: 'center 65%',
     },
   ],
 };
@@ -112,7 +118,7 @@ export default function BikeLevelCards({ lang }: Props) {
               style={level.featured ? { boxShadow: `0 0 60px ${level.accentGlow}` } : {}}
             >
               <div className="relative h-56 overflow-hidden flex-shrink-0">
-                <img src={level.img} alt={level.title.replace('\n', ' ')} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <img src={level.img} alt={level.title.replace('\n', ' ')} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" style={{ objectPosition: level.imgPosition || 'center center' }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 <div className="absolute top-4 left-4">
                   <span className="text-xs font-black tracking-[0.2em] uppercase px-3 py-1.5 rounded-full" style={{ background: level.accentColor + '25', color: level.accentColor, border: `1px solid ${level.accentColor}50` }}>{level.badge}</span>

@@ -215,8 +215,7 @@ export default function BrandSelector({ lang, setLang }: Props) {
                 {tx.bikeSeason}
               </div>
 
-              {/* Bike icon */}
-              <div className="text-6xl mb-6" aria-hidden="true">🚵</div>
+              <img src="/logo-bikematch.png" alt="Bike Match Lessons" className="h-16 w-auto object-contain mx-auto mb-6 opacity-95" />
 
               <h1 className="text-white font-black text-2xl lg:text-3xl tracking-tight mb-3 leading-tight" style={{ letterSpacing: '-0.02em' }}>
                 {tx.bikeTitle}

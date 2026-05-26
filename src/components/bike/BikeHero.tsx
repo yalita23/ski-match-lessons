@@ -11,7 +11,7 @@ interface Props { lang: 'en' | 'es'; }
    ─────────────────────────────────────────────────────────────────────── */
 const VIDEO = {
   type: 'youtube' as 'youtube' | 'vimeo' | '',
-  id: '', // ← Paste your YouTube video ID here (e.g. "dQw4w9WgXcQ")
+  id: 'a0XBHsSOEos', // ← YouTube video ID
 };
 
 const LEAVES = Array.from({ length: 35 }, (_, i) => ({
