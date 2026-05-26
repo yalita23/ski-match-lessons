@@ -29,7 +29,7 @@ export default function BikeTestimonialsCarousel({ lang }: Props) {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1527359443443-84a48aec73d2?w=1200&q=60')`,
+          backgroundImage: `url('/bike-testimonials-bg.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

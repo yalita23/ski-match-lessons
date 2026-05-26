@@ -42,7 +42,7 @@ export default function BikeContactSection({ lang }: Props) {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=60')`,
+          backgroundImage: `url('/bike-contact-bg.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

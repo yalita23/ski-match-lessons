@@ -45,7 +45,7 @@ export default function BikeHero({ lang }: Props) {
         ],
       }
     : {
-        badge: '— INSTRUCTORES MTB CERTIFICADOS MUNDIAL',
+        badge: '— INSTRUCTORES MTB CERTIFICADOS MUNDIALMENTE',
         line1: 'DOMINÁ LOS',
         line2: 'SENDEROS.',
         sub: 'Clases privadas de mountain bike con coaches certificados de élite en 50+ destinos de trail premium. Todos los niveles.',

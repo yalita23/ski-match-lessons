@@ -9,7 +9,7 @@ const levels = {
     {
       badge: 'BEGINNER',
       title: 'Trail\nNovices',
-      img: 'https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?w=800&q=80',
+      img: '/bike-beginner.jpg',
       desc: 'New to mountain biking? Perfect starting point. Learn body position, braking, and confidence on smooth trails — safe, fast, and addictive.',
       points: ['Green & blue smooth trails', 'Body position & braking technique', 'Confidence from day one', 'Private or group lessons'],
       cta: 'Book Beginner Class',
@@ -21,7 +21,7 @@ const levels = {
       badge: 'MOST POPULAR',
       badgePop: true,
       title: 'Trail\nWarriors',
-      img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+      img: '/bike-intermediate.jpg',
       desc: 'You can ride but want to ride better. Master berms, rock gardens, tabletops — and start conquering technical terrain you\'ve been avoiding.',
       points: ['Rock gardens & rooted trails', 'Cornering & pumping technique', 'Tabletops & small jumps', 'Progression to black trails'],
       cta: 'Book Intermediate Class',
@@ -33,7 +33,7 @@ const levels = {
     {
       badge: 'ADVANCED',
       title: 'Downhill &\nEnduro Masters',
-      img: 'https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=800&q=80',
+      img: '/bike-advanced.jpg',
       desc: 'Push the limits. Downhill, big drops, enduro coaching — our top coaches are former EWS racers and downhill professionals.',
       points: ['Technical DH & enduro terrain', 'Big drops & gap jumps', 'Enduro race coaching', 'Elite personalized sessions'],
       cta: 'Book Advanced Class',
@@ -46,7 +46,7 @@ const levels = {
     {
       badge: 'PRINCIPIANTE',
       title: 'Trail\nNovatos',
-      img: 'https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?w=800&q=80',
+      img: '/bike-beginner.jpg',
       desc: '¿Nuevo en el mountain bike? Punto de partida perfecto. Aprendé posición corporal, frenado y confianza en senderos suaves — seguro, rápido y adictivo.',
       points: ['Senderos verdes y azules suaves', 'Posición corporal y técnica de frenado', 'Confianza desde el día uno', 'Clases privadas o grupales'],
       cta: 'Reservar Clase Principiante',
@@ -58,7 +58,7 @@ const levels = {
       badge: 'MÁS POPULAR',
       badgePop: true,
       title: 'Trail\nWarriors',
-      img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+      img: '/bike-intermediate.jpg',
       desc: 'Sabés rodar pero querés rodar mejor. Dominá berms, jardines de rocas, tabletops — y empezá a conquistar el terreno técnico que evitabas.',
       points: ['Jardines de rocas y senderos con raíces', 'Técnica de viraje y bombeo', 'Tabletops y saltos pequeños', 'Progresión hacia senderos negros'],
       cta: 'Reservar Clase Intermedia',
@@ -70,7 +70,7 @@ const levels = {
     {
       badge: 'AVANZADO',
       title: 'Downhill &\nEnduro Masters',
-      img: 'https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=800&q=80',
+      img: '/bike-advanced.jpg',
       desc: 'Empujá los límites. Downhill, drops grandes, coaching de enduro — nuestros top coaches son ex-racers de EWS y profesionales del downhill.',
       points: ['DH técnico y terreno de enduro', 'Drops grandes y gap jumps', 'Coaching de carrera enduro', 'Sesiones personalizadas de élite'],
       cta: 'Reservar Clase Avanzada',
