@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getWhatsAppLink } from '../lib/constants';
+import { useBrand } from '../context/BrandContext';
 
 interface NavbarProps {
   darkMode: boolean;
@@ -16,6 +17,7 @@ const t = {
 };
 
 export default function Navbar({ darkMode, toggleDark, lang, toggleLang, logoSrc }: NavbarProps) {
+  const { setBrand } = useBrand();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const tx = t[lang];
@@ -51,7 +53,15 @@ export default function Navbar({ darkMode, toggleDark, lang, toggleLang, logoSrc
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
 
-          {/* Logo */}
+          {/* Left: back to selector + logo */}
+          <div className="flex items-center gap-3">
+          <button
+            onClick={() => setBrand('selector')}
+            className="text-white/40 hover:text-[#0066FF] text-xs font-black tracking-widest uppercase border border-white/10 hover:border-[#0066FF]/40 px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5"
+            title={lang === 'en' ? 'Switch brand' : 'Cambiar marca'}
+          >
+            ← {lang === 'en' ? 'Switch' : 'Cambiar'}
+          </button>
           <a href="#hero" className="flex items-center gap-2.5 group" aria-label="Ski Match Lessons - Home">
             {logoSrc ? (
               <img
@@ -71,6 +81,7 @@ export default function Navbar({ darkMode, toggleDark, lang, toggleLang, logoSrc
               </>
             )}
           </a>
+          </div>
 
           {/* Desktop nav links */}
           <div className="hidden lg:flex items-center gap-0.5">
