@@ -4,15 +4,43 @@ import { getBikeWhatsAppLink } from '../../lib/bike-constants';
 
 interface Props { darkMode: boolean; lang: 'en' | 'es'; }
 
-const FEATURED_RESORTS = [
-  { id: 1,  name: 'Vail',         location: 'Colorado, USA',            difficulty: 'All Levels',    trailType: 'All-Mountain / XC', coaches: 24, rating: 5.0, image: '/images/bike-resorts/vail-mtb.jpg' },
-  { id: 2,  name: 'Park City',    location: 'Utah, USA',                difficulty: 'All Levels',    trailType: 'All-Mountain / XC', coaches: 18, rating: 4.9, image: '/images/bike-resorts/parkcity-mtb.jpg' },
-  { id: 3,  name: 'Lake Tahoe',   location: 'California, USA',          difficulty: 'All Levels',    trailType: 'XC / All-Mountain', coaches: 14, rating: 4.9, image: '/images/bike-resorts/laketahoe-mtb.jpg' },
-  { id: 4,  name: 'Whistler',     location: 'British Columbia, Canada', difficulty: 'All Levels',    trailType: 'Downhill / Enduro',  coaches: 35, rating: 5.0, image: '/images/bike-resorts/whistler-mtb.jpg' },
-  { id: 5,  name: 'Big Bear',     location: 'California, USA',          difficulty: 'All Levels',    trailType: 'Downhill / XC',     coaches: 12, rating: 4.6, image: '/images/bike-resorts/bigbear-mtb.jpg' },
-  { id: 6,  name: 'Mammoth',      location: 'California, USA',          difficulty: 'All Levels',    trailType: 'Downhill / Enduro',  coaches: 20, rating: 4.8, image: '/images/bike-resorts/mammoth-mtb.png' },
-  { id: 7,  name: 'Europa',       location: 'Andorra · España · Francia', difficulty: 'All Levels', trailType: 'All-Mountain / XC', coaches: 22, rating: 4.8, image: '/images/bike-resorts/europa-mtb.jpg' },
-  { id: 8,  name: 'Argentina',    location: 'Bariloche · Mendoza',      difficulty: 'All Levels',    trailType: 'Enduro / XC',        coaches: 16, rating: 4.9, image: '/images/bike-resorts/argentina-mtb.jpg' },
+const REGIONS = [
+  {
+    name: 'USA',
+    instructors: '+40',
+    image: '/images/bike-resorts/mammoth-mtb.png',
+    destinations_en: 'Vail · Park City · Mammoth · Lake Tahoe',
+    destinations_es: 'Vail · Park City · Mammoth · Lake Tahoe',
+    msg_en: "Hi! I'd like to book an MTB lesson in the USA.",
+    msg_es: 'Hola! Quisiera reservar una clase de MTB en USA.',
+  },
+  {
+    name: 'Canada',
+    instructors: '+30',
+    image: '/images/bike-resorts/bigbear-mtb.jpg',
+    destinations_en: 'Whistler · Squamish · Revelstoke',
+    destinations_es: 'Whistler · Squamish · Revelstoke',
+    msg_en: "Hi! I'd like to book an MTB lesson in Canada.",
+    msg_es: 'Hola! Quisiera reservar una clase de MTB en Canadá.',
+  },
+  {
+    name: 'Europa',
+    instructors: '+25',
+    image: '/images/bike-resorts/europa-mtb.jpg',
+    destinations_en: 'Andorra · Spain · France',
+    destinations_es: 'Andorra · España · Francia',
+    msg_en: "Hi! I'd like to book an MTB lesson in Europe.",
+    msg_es: 'Hola! Quisiera reservar una clase de MTB en Europa.',
+  },
+  {
+    name: 'Sudamérica',
+    instructors: '+25',
+    image: '/images/bike-resorts/argentina-mtb.jpg',
+    destinations_en: 'Bariloche · Mendoza · Santiago',
+    destinations_es: 'Bariloche · Mendoza · Santiago',
+    msg_en: "Hi! I'd like to book an MTB lesson in South America.",
+    msg_es: 'Hola! Quisiera reservar una clase de MTB en Sudamérica.',
+  },
 ];
 
 export default function BikeResortsSection({ lang }: Props) {
@@ -53,46 +81,40 @@ export default function BikeResortsSection({ lang }: Props) {
           </p>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {FEATURED_RESORTS.map((resort, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {REGIONS.map((region, i) => (
             <motion.div
-              key={resort.id}
-              initial={{ opacity: 0, y: 30 }}
+              key={region.name}
+              initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.05 + i * 0.07 }}
+              transition={{ duration: 0.5, delay: 0.08 + i * 0.1 }}
               className="group relative rounded-2xl overflow-hidden border border-gray-200 hover:border-[#10B981]/40 transition-all duration-300 hover:shadow-xl hover:shadow-[#10B981]/10 bg-white shadow-sm"
             >
-              <div className="relative h-44 overflow-hidden">
+              {/* Image */}
+              <div className="relative h-52 overflow-hidden">
                 <img
-                  src={resort.image}
-                  alt={`${resort.name} MTB destination`}
+                  src={region.image}
+                  alt={region.name}
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-                <div className="absolute top-3 right-3 flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-full">
-                  <span className="text-yellow-400 text-xs">★</span>
-                  <span className="text-white text-xs font-bold">{resort.rating}</span>
-                </div>
-                <div className="absolute bottom-3 left-3">
-                  <span className="text-xs font-black px-2.5 py-1 rounded-full bg-[#10B981]/80 text-white">
-                    {resort.difficulty}
-                  </span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+                {/* Instructor badge */}
+                <div className="absolute top-3 right-3 bg-[#10B981] text-white text-xs font-black px-3 py-1.5 rounded-full">
+                  {region.instructors} {lang === 'en' ? 'coaches' : 'coaches'}
                 </div>
               </div>
 
-              <div className="p-4">
-                <h3 className="text-gray-900 font-bold text-sm mb-0.5">{resort.name}</h3>
-                <p className="text-gray-400 text-xs mb-1">📍 {resort.location}</p>
-                <p className="text-[#10B981] text-xs font-bold mb-3">🚵 {resort.trailType}</p>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[#10B981] text-xs font-bold">
-                    👨‍🏫 {resort.coaches} {lang === 'en' ? 'coaches' : 'coaches'}
-                  </span>
-                </div>
+              {/* Content */}
+              <div className="p-5">
+                <h3 className="text-gray-900 font-black text-xl mb-1" style={{ letterSpacing: '-0.02em' }}>
+                  {region.name}
+                </h3>
+                <p className="text-gray-400 text-xs mb-5">
+                  {lang === 'en' ? region.destinations_en : region.destinations_es}
+                </p>
                 <a
-                  href={getBikeWhatsAppLink(`Hi! I'd like to book an MTB lesson at ${resort.name} (${resort.location}).`)}
+                  href={getBikeWhatsAppLink(lang === 'en' ? region.msg_en : region.msg_es)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center bg-[#10B981] hover:bg-[#059669] text-white py-2.5 rounded-xl text-xs font-black uppercase tracking-wide transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#10B981]/30"
