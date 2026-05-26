@@ -42,7 +42,7 @@ const levels = {
       accentColor: '#EF4444',
       accentGlow: 'rgba(239, 68, 68, 0.3)',
       msg: "Hi! I'm an advanced MTB rider looking for elite coaching with Bike Match Lessons.",
-      imgPosition: 'center 65%',
+      imgPosition: 'center 30%',
     },
   ],
   es: [
@@ -82,7 +82,7 @@ const levels = {
       accentColor: '#EF4444',
       accentGlow: 'rgba(239, 68, 68, 0.3)',
       msg: 'Hola! Soy rider MTB avanzado/a buscando coaching elite con Bike Match Lessons.',
-      imgPosition: 'center 65%',
+      imgPosition: 'center 30%',
     },
   ],
 };
