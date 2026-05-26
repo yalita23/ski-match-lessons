@@ -4,6 +4,16 @@ import { getBikeWhatsAppLink } from '../../lib/bike-constants';
 
 interface Props { lang: 'en' | 'es'; }
 
+/* ─── SWAP YOUR VIDEO HERE ─────────────────────────────────────────────────
+   YouTube:  type="youtube"  id="YOUR_VIDEO_ID"
+   Vimeo:    type="vimeo"    id="YOUR_VIDEO_ID"
+   Leave id="" to use the green gradient + mountain silhouette fallback.
+   ─────────────────────────────────────────────────────────────────────── */
+const VIDEO = {
+  type: 'youtube' as 'youtube' | 'vimeo' | '',
+  id: '', // ← Paste your YouTube video ID here (e.g. "dQw4w9WgXcQ")
+};
+
 const LEAVES = Array.from({ length: 35 }, (_, i) => ({
   id: i,
   left: `${Math.random() * 100}%`,
@@ -14,6 +24,19 @@ const LEAVES = Array.from({ length: 35 }, (_, i) => ({
   sway: `${15 + Math.random() * 35}px`,
   char: ['🍃', '🍂', '🌿', '🍃', '🍃'][Math.floor(Math.random() * 5)],
 }));
+
+function VideoBackground() {
+  if (!VIDEO.id) return null;
+  const src =
+    VIDEO.type === 'youtube'
+      ? `https://www.youtube.com/embed/${VIDEO.id}?autoplay=1&mute=1&loop=1&playlist=${VIDEO.id}&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3`
+      : `https://player.vimeo.com/video/${VIDEO.id}?autoplay=1&muted=1&loop=1&background=1&quality=1080p`;
+  return (
+    <div className="video-bg absolute inset-0 overflow-hidden" aria-hidden="true">
+      <iframe src={src} allow="autoplay; encrypted-media; fullscreen" title="Background video" />
+    </div>
+  );
+}
 
 export default function BikeHero({ lang }: Props) {
   const mountainRef = useRef<HTMLDivElement>(null);
@@ -62,32 +85,40 @@ export default function BikeHero({ lang }: Props) {
 
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden flex flex-col" aria-label="Hero">
-      {/* Background gradient */}
-      <div
-        className="absolute inset-0"
-        style={{ background: 'linear-gradient(160deg, #021a0e 0%, #032d16 40%, #043d1e 70%, #052e16 100%)' }}
-      />
 
-      {/* Mountain silhouette (parallax) */}
-      <div ref={mountainRef} className="absolute bottom-0 left-0 right-0 pointer-events-none" aria-hidden="true">
-        {/* Back ridge — lush green */}
-        <div className="absolute bottom-0 left-0 right-0 h-72 opacity-30"
-          style={{ background: 'linear-gradient(to top, #064e3b, transparent)', clipPath: 'polygon(0 60%, 8% 40%, 18% 50%, 28% 25%, 40% 45%, 52% 20%, 64% 38%, 76% 18%, 88% 35%, 100% 15%, 100% 100%, 0 100%)' }}
+      {/* ── BACKGROUND ─────────────────────────────────────────── */}
+      {VIDEO.id ? (
+        <VideoBackground />
+      ) : (
+        /* Gradient fallback when no video */
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(160deg, #021a0e 0%, #032d16 40%, #043d1e 70%, #052e16 100%)' }}
         />
-        {/* Mid ridge — deeper green */}
-        <div className="absolute bottom-0 left-0 right-0 h-56 opacity-50"
-          style={{ background: 'linear-gradient(to top, #047857, transparent)', clipPath: 'polygon(0 55%, 12% 35%, 22% 48%, 35% 22%, 45% 40%, 58% 15%, 70% 32%, 82% 12%, 92% 28%, 100% 8%, 100% 100%, 0 100%)' }}
-        />
-        {/* Front ridge — darkest */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 opacity-70"
-          style={{ background: 'linear-gradient(to top, #021a0e, transparent)', clipPath: 'polygon(0 70%, 15% 50%, 28% 62%, 42% 40%, 55% 58%, 68% 35%, 80% 52%, 92% 38%, 100% 48%, 100% 100%, 0 100%)' }}
-        />
-        {/* Ground */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-[#021a0e]" />
-      </div>
+      )}
+
+      {/* Dark overlay — always present */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/10" aria-hidden="true" />
+
+      {/* Mountain silhouettes — only when no video */}
+      {!VIDEO.id && (
+        <div ref={mountainRef} className="absolute bottom-0 left-0 right-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute bottom-0 left-0 right-0 h-72 opacity-30"
+            style={{ background: 'linear-gradient(to top, #064e3b, transparent)', clipPath: 'polygon(0 60%, 8% 40%, 18% 50%, 28% 25%, 40% 45%, 52% 20%, 64% 38%, 76% 18%, 88% 35%, 100% 15%, 100% 100%, 0 100%)' }}
+          />
+          <div className="absolute bottom-0 left-0 right-0 h-56 opacity-50"
+            style={{ background: 'linear-gradient(to top, #047857, transparent)', clipPath: 'polygon(0 55%, 12% 35%, 22% 48%, 35% 22%, 45% 40%, 58% 15%, 70% 32%, 82% 12%, 92% 28%, 100% 8%, 100% 100%, 0 100%)' }}
+          />
+          <div className="absolute bottom-0 left-0 right-0 h-40 opacity-70"
+            style={{ background: 'linear-gradient(to top, #021a0e, transparent)', clipPath: 'polygon(0 70%, 15% 50%, 28% 62%, 42% 40%, 55% 58%, 68% 35%, 80% 52%, 92% 38%, 100% 48%, 100% 100%, 0 100%)' }}
+          />
+          <div className="absolute bottom-0 left-0 right-0 h-20 bg-[#021a0e]" />
+        </div>
+      )}
 
       {/* Leaf particles */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-[2]" aria-hidden="true">
         {LEAVES.map(l => (
           <div
             key={l.id}
@@ -107,10 +138,10 @@ export default function BikeHero({ lang }: Props) {
       </div>
 
       {/* Green accent glows */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#10B981]/8 rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
-      <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-[#F59E0B]/6 rounded-full blur-[100px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#10B981]/8 rounded-full blur-[120px] pointer-events-none z-[1]" aria-hidden="true" />
+      <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-[#F59E0B]/6 rounded-full blur-[100px] pointer-events-none z-[1]" aria-hidden="true" />
 
-      {/* Main content */}
+      {/* ── MAIN CONTENT ───────────────────────────────────────── */}
       <div className="relative z-10 flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-36">
         <div className="max-w-7xl mx-auto w-full">
           <motion.div
@@ -134,7 +165,7 @@ export default function BikeHero({ lang }: Props) {
             </h1>
 
             {/* Sub */}
-            <p className="text-white/50 text-lg max-w-xl leading-relaxed mb-10" style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}>
+            <p className="text-white/60 text-lg max-w-xl leading-relaxed mb-10" style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}>
               {tx.sub}
             </p>
 

@@ -63,11 +63,8 @@ export default function BikeFooter({ lang }: Props) {
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            <a href="#hero" className="flex items-center gap-2 mb-5 font-black text-white" style={{ letterSpacing: '-0.01em' }} aria-label="Bike Match Lessons - Home">
-              <span className="text-2xl" aria-hidden="true">🚵</span>
-              <span>
-                <span className="text-[#10B981]">Bike</span>Match Lessons
-              </span>
+            <a href="#hero" className="block mb-5" aria-label="Bike Match Lessons - Home">
+              <img src="/logo-bikematch.png" alt="Bike Match Lessons" className="h-14 w-auto object-contain" />
             </a>
             <p className="text-white/35 text-sm leading-relaxed mb-5">
               {lang === 'en'

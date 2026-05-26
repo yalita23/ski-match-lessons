@@ -36,11 +36,8 @@ export default function BikeNavbar({ toggleDark, lang, toggleLang }: Props) {
           >
             ← {lang === 'en' ? 'Switch' : 'Cambiar'}
           </button>
-          <a href="#hero" className="flex items-center gap-2 font-black text-white tracking-tight" style={{ letterSpacing: '-0.01em' }}>
-            <span className="text-lg" aria-hidden="true">🚵</span>
-            <span className="hidden sm:block text-sm">
-              <span className="text-[#10B981]">Bike</span>Match Lessons
-            </span>
+          <a href="#hero" className="flex items-center" aria-label="Bike Match Lessons - Home">
+            <img src="/logo-bikematch.png" alt="Bike Match Lessons" className="h-9 w-auto object-contain" />
           </a>
         </div>
 

@@ -5,14 +5,14 @@ import { getBikeWhatsAppLink } from '../../lib/bike-constants';
 interface Props { darkMode: boolean; lang: 'en' | 'es'; }
 
 const FEATURED_RESORTS = [
-  { id: 1,  name: 'Vail',         location: 'Colorado, USA',            difficulty: 'All Levels',    trailType: 'All-Mountain / XC', coaches: 24, rating: 5.0, image: '/images/bike-resorts/vail.jpg' },
-  { id: 2,  name: 'Park City',    location: 'Utah, USA',                difficulty: 'All Levels',    trailType: 'All-Mountain / XC', coaches: 18, rating: 4.9, image: '/images/bike-resorts/parkcity.jpg' },
-  { id: 3,  name: 'Lake Tahoe',   location: 'California, USA',          difficulty: 'All Levels',    trailType: 'XC / All-Mountain', coaches: 14, rating: 4.9, image: '/images/bike-resorts/laketahoe.jpg' },
-  { id: 4,  name: 'Whistler',     location: 'British Columbia, Canada', difficulty: 'All Levels',    trailType: 'Downhill / Enduro',  coaches: 35, rating: 5.0, image: '/images/bike-resorts/whistler.jpg' },
-  { id: 5,  name: 'Big Bear',     location: 'California, USA',          difficulty: 'All Levels',    trailType: 'Downhill / XC',     coaches: 12, rating: 4.6, image: '/images/bike-resorts/bigbear.jpg' },
-  { id: 6,  name: 'Mammoth',      location: 'California, USA',          difficulty: 'All Levels',    trailType: 'Downhill / Enduro',  coaches: 20, rating: 4.8, image: '/images/bike-resorts/mammoth.jpg' },
-  { id: 7,  name: 'Europa',       location: 'Andorra · España · Francia', difficulty: 'All Levels', trailType: 'All-Mountain / XC', coaches: 22, rating: 4.8, image: '/images/bike-resorts/europa.jpg' },
-  { id: 8,  name: 'Argentina',    location: 'Bariloche · Mendoza',      difficulty: 'All Levels',    trailType: 'Enduro / XC',        coaches: 16, rating: 4.9, image: '/images/bike-resorts/argentina.jpg' },
+  { id: 1,  name: 'Vail',         location: 'Colorado, USA',            difficulty: 'All Levels',    trailType: 'All-Mountain / XC', coaches: 24, rating: 5.0, image: '/images/bike-resorts/vail-mtb.jpg' },
+  { id: 2,  name: 'Park City',    location: 'Utah, USA',                difficulty: 'All Levels',    trailType: 'All-Mountain / XC', coaches: 18, rating: 4.9, image: '/images/bike-resorts/parkcity-mtb.jpg' },
+  { id: 3,  name: 'Lake Tahoe',   location: 'California, USA',          difficulty: 'All Levels',    trailType: 'XC / All-Mountain', coaches: 14, rating: 4.9, image: '/images/bike-resorts/laketahoe-mtb.jpg' },
+  { id: 4,  name: 'Whistler',     location: 'British Columbia, Canada', difficulty: 'All Levels',    trailType: 'Downhill / Enduro',  coaches: 35, rating: 5.0, image: '/images/bike-resorts/whistler-mtb.jpg' },
+  { id: 5,  name: 'Big Bear',     location: 'California, USA',          difficulty: 'All Levels',    trailType: 'Downhill / XC',     coaches: 12, rating: 4.6, image: '/images/bike-resorts/bigbear-mtb.jpg' },
+  { id: 6,  name: 'Mammoth',      location: 'California, USA',          difficulty: 'All Levels',    trailType: 'Downhill / Enduro',  coaches: 20, rating: 4.8, image: '/images/bike-resorts/mammoth-mtb.png' },
+  { id: 7,  name: 'Europa',       location: 'Andorra · España · Francia', difficulty: 'All Levels', trailType: 'All-Mountain / XC', coaches: 22, rating: 4.8, image: '/images/bike-resorts/europa-mtb.jpg' },
+  { id: 8,  name: 'Argentina',    location: 'Bariloche · Mendoza',      difficulty: 'All Levels',    trailType: 'Enduro / XC',        coaches: 16, rating: 4.9, image: '/images/bike-resorts/argentina-mtb.jpg' },
 ];
 
 export default function BikeResortsSection({ lang }: Props) {
