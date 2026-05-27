@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://skimatchlessons.com/sitemap.xml
+
+# Block crawling of any future admin paths
+Disallow: /admin/
+Disallow: /api/
